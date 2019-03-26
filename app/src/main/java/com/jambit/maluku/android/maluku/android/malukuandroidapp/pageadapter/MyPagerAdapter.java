@@ -33,9 +33,9 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "Tab 1";
+                return "Tables";
             case 1:
-                return "Tab 2";
+                return "Chat";
             default:
                 return null;
         }
