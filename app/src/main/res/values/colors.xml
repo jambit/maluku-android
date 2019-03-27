@@ -3,7 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="materialCustomRed600">#E53935</color>
-    <color name="materialCustomBlueGray700">#455A64</color>
-    <color name="materialCustomWhite">#FCFCFC</color>
+    <color name="materialCustomRed600">#912F40</color>
+    <color name="materialCustomWhite">#E0E0E0</color>
+    <color name="jambitOrange">#EE7F00</color>
+    <color name="jambitGrey">#262626</color>
 </resources>

@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/materialCustomBlueGray700"
+        android:background="@color/jambitGrey"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
@@ -30,10 +30,11 @@
         android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/materialCustomBlueGray700"
+        android:background="@color/jambitGrey"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:tabIndicatorColor="@color/materialCustomRed600">
+        app:tabIndicatorColor="@color/jambitOrange"
+        app:tabRippleColor="@color/jambitOrange">
 
     </android.support.design.widget.TabLayout>
 
