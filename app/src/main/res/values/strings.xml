@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Maluku Android App</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tabs_headline">jambit Foosball</string>
+    <string name="content_description_foosball_one">Picture of foosball one</string>
+    <string name="content_description_foosball_two">Picture of foosball two</string>
+    <string name="content_description_foosball_three">Picture of foosball three</string>
+    <string name="foosball_one_text">Foosball 1</string>
+    <string name="foosball_two_text">Foosball 2</string>
+    <string name="foosball_three_text">Foosball 3</string>
+    <string name="foosball_one_icon">Foosball one icon</string>
+    <string name="foosball_two_icon">Foosball two icon</string>
+    <string name="foosball_three_icon">Foosball three icon</string>
 </resources>

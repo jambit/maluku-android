@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_layout_foosball_one"
+        android:layout_width="351dp"
+        android:layout_height="103dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraint_layout_foosball_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/foosball_icon_one"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="36dp"
+            android:contentDescription="@string/foosball_one_icon"
+            android:src="@drawable/ic_check_box_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_view_foosball_one"
+            android:layout_width="100dp"
+            android:layout_height="88dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="22dp"
+            android:contentDescription="@string/content_description_foosball_one"
+            android:src="@drawable/kicker_table1_free"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="115dp"
+            android:text="@string/foosball_one_text"
+            android:textAlignment="viewStart"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_view_foosball_one"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_layout_foosball_two"
+        android:layout_width="351dp"
+        android:layout_height="103dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraint_layout_foosball_three"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraint_layout_foosball_one">
+
+        <ImageView
+            android:id="@+id/foosball_icon_two"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="36dp"
+            android:contentDescription="@string/foosball_two_icon"
+            android:src="@drawable/ic_check_box_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_view_foosball_two"
+            android:layout_width="100dp"
+            android:layout_height="88dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="22dp"
+            android:contentDescription="@string/content_description_foosball_two"
+            android:src="@drawable/kicker_table3_free"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="115dp"
+            android:text="@string/foosball_two_text"
+            android:textAlignment="viewStart"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_view_foosball_two"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_layout_foosball_three"
+        android:layout_width="351dp"
+        android:layout_height="103dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraint_layout_foosball_two">
+
+        <ImageView
+            android:id="@+id/foosball_icon_three"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="36dp"
+            android:contentDescription="@string/foosball_three_icon"
+            android:src="@drawable/ic_check_box_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_view_foosball_three"
+            android:layout_width="100dp"
+            android:layout_height="88dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="22dp"
+            android:contentDescription="@string/content_description_foosball_three"
+            android:src="@drawable/kicker_table2_free"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="115dp"
+            android:text="@string/foosball_three_text"
+            android:textAlignment="viewStart"
+            android:textAllCaps="true"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_view_foosball_three"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
