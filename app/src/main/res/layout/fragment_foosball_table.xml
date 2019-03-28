@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:buttonTint="@color/materialCustomWhite"
+            android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent" />
@@ -74,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:buttonTint="@color/materialCustomWhite"
+            android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -125,6 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:buttonTint="@color/materialCustomWhite"
+            android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toTopOf="parent" />
