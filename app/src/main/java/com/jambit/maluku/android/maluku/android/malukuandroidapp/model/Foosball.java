@@ -1,4 +1,4 @@
-package com.jambit.maluku.android.maluku.android.malukuandroidapp.data;
+package com.jambit.maluku.android.maluku.android.malukuandroidapp.model;
 
 public class Foosball {
 

@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jambit.maluku.android.maluku.android.malukuandroidapp.data.Foosball;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.Foosball;
 
 import java.io.IOException;
 import java.util.List;
