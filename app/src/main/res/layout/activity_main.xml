@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:text="@string/tabs_headline"
             android:textColor="@color/materialCustomWhite"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
 
     </android.support.v7.widget.Toolbar>
@@ -33,7 +33,7 @@
         android:background="@color/jambitGrey"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:tabIndicatorColor="@color/jambitOrange"
+        app:tabIndicatorColor="@color/customLightRed"
         app:tabRippleColor="@color/jambitOrange">
 
     </android.support.design.widget.TabLayout>
