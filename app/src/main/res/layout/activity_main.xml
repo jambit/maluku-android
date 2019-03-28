@@ -33,7 +33,7 @@
         android:background="@color/jambitGrey"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:tabIndicatorColor="@color/customLightRed"
+        app:tabIndicatorColor="@color/jambitOrange"
         app:tabRippleColor="@color/jambitOrange">
 
     </android.support.design.widget.TabLayout>

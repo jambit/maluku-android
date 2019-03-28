@@ -3,12 +3,22 @@ package com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.R;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.Foosball;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.network.MalukuOkHttpClient;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +39,13 @@ public class FoosballTable extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private Timer timer;
+    private MalukuOkHttpClient malukuOkHttpClient = new MalukuOkHttpClient();
+
+    private RadioButton radioButtonFoosballOne;
+    private RadioButton radioButtonFoosballTwo;
+    private RadioButton radioButtonFoosballThree;
 
     public FoosballTable() {
         // Required empty public constructor
@@ -66,6 +83,53 @@ public class FoosballTable extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_foosball_table, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        radioButtonFoosballOne = getView().findViewById(R.id.radioButton);
+        radioButtonFoosballTwo = getView().findViewById(R.id.radioButton2);
+        radioButtonFoosballThree = getView().findViewById(R.id.radioButton3);
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                try {
+                    List<Foosball> foosballList = malukuOkHttpClient.getSonicSensorData();
+
+                    for (Foosball foosball : foosballList) {
+                        switch (foosball.getId()) {
+                            case 1:
+                                if (foosballList.get(0).isOccupied()) {
+                                    radioButtonFoosballOne.setChecked(true);
+                                } else {
+                                    radioButtonFoosballOne.setChecked(false);
+                                }
+                                break;
+                            case 2:
+                                if (foosballList.get(1).isOccupied()) {
+                                    radioButtonFoosballTwo.setChecked(true);
+                                } else {
+                                    radioButtonFoosballTwo.setChecked(false);
+                                }
+                                break;
+                            case 3:
+                                if (foosballList.get(2).isOccupied()) {
+                                    radioButtonFoosballThree.setChecked(true);
+                                } else {
+                                    radioButtonFoosballThree.setChecked(false);
+                                }
+                                break;
+                            default:
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 1000, 1500);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

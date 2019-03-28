@@ -4,30 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@color/jambitOrange">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_layout_foosball_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/black_background"
+        android:background="@color/jambitGrey"
         app:layout_constraintBottom_toTopOf="@+id/constraint_layout_foosball_two"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/foosball_icon_one"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="36dp"
-            android:contentDescription="@string/foosball_one_icon"
-            android:src="@drawable/ic_check_box_black_24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/image_view_foosball_one"
@@ -59,28 +46,37 @@
             app:layout_constraintStart_toEndOf="@+id/image_view_foosball_one"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:buttonTint="@color/materialCustomWhite"
+            android:clickable="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_layout_foosball_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/black_background"
+        android:background="@color/jambitGrey"
         app:layout_constraintBottom_toTopOf="@+id/constraint_layout_foosball_three"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraint_layout_foosball_one">
 
-        <ImageView
-            android:id="@+id/foosball_icon_two"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="36dp"
-            android:contentDescription="@string/foosball_two_icon"
-            android:src="@drawable/ic_check_box_black_24dp"
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:buttonTint="@color/materialCustomWhite"
+            android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -119,22 +115,20 @@
         android:id="@+id/constraint_layout_foosball_three"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/black_background"
+        android:background="@color/jambitGrey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraint_layout_foosball_two">
 
-        <ImageView
-            android:id="@+id/foosball_icon_three"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginEnd="36dp"
-            android:contentDescription="@string/foosball_three_icon"
-            android:src="@drawable/ic_check_box_black_24dp"
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:buttonTint="@color/materialCustomWhite"
+            android:clickable="false"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toTopOf="parent" />
 
