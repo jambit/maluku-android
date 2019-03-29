@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.FoosballChat;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.FoosballTable;
-import com.jambit.maluku.android.maluku.android.malukuandroidapp.pageadapter.MyPagerAdapter;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.adapter.MyPagerAdapter;
 
 public class MainActivity extends AppCompatActivity implements FoosballChat.OnFragmentInteractionListener, FoosballTable.OnFragmentInteractionListener {
 
