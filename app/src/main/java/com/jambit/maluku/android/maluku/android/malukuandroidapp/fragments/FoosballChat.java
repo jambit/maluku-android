@@ -86,20 +86,19 @@ public class FoosballChat extends Fragment {
 
         recyclerView = getActivity().findViewById(R.id.my_recycler_view);
 
-        // use this setting to
-        // improve performance if you know that changes
-        // in content do not change the layout size
-        // of the RecyclerView
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        List<String> input = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            input.add("Test" + i);
-        }// define an adapter
-        mAdapter = new MyListAdapter(input);
+
+
+        String[] myDataset = {"Vincenzo", "Susanne", "Ayberk", "Peter"};
+
+        // specify an adapter (see also next example)
+        mAdapter = new MyListAdapter(myDataset);
         recyclerView.setAdapter(mAdapter);
 
     }
