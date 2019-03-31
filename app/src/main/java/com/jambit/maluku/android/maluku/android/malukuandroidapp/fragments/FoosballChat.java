@@ -1,6 +1,7 @@
 package com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments;
 
 import android.content.Context;
+import android.content.PeriodicSync;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,8 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.MainActivity;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.R;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.adapter.MyListAdapter;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.Person;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +42,9 @@ public class FoosballChat extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
+    private MyListAdapter adapter;
+    private ArrayList<Person> people;
+
 
     public FoosballChat() {
         // Required empty public constructor
@@ -84,22 +88,21 @@ public class FoosballChat extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = getActivity().findViewById(R.id.my_recycler_view);
+        people = new ArrayList<>();
+        people.add(new Person("Employee1", "Floor 3"));
+        people.add(new Person("Employee2", "Floor 2"));
+        people.add(new Person("Employee3", "Floor 4"));
+        people.add(new Person("Employee4", "Floor 4"));
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true);
+        recyclerView = getActivity().findViewById(R.id.recycler_view);
 
-        // use a linear layout manager
-        layoutManager = new LinearLayoutManager(getContext());
+        adapter = new MyListAdapter(people);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+
         recyclerView.setLayoutManager(layoutManager);
 
-
-        String[] myDataset = {"Vincenzo", "Susanne", "Ayberk", "Peter"};
-
-        // specify an adapter (see also next example)
-        mAdapter = new MyListAdapter(myDataset);
-        recyclerView.setAdapter(mAdapter);
+        recyclerView.setAdapter(adapter);
 
     }
 
