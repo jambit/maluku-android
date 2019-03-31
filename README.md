@@ -12,3 +12,6 @@ In addition, the user should find potential game partners faster through a chat 
 
 ## Authors
 * Vincenzo Auricchio 
+
+## Contributing
+Everyone is invited to participate in the development of the app or to suggest improvements.
