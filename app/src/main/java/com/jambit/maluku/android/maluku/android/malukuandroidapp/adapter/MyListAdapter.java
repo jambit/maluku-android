@@ -7,52 +7,50 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.R;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.Person;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.MyViewHolder> {
+public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.EmployeeViewHolder> {
 
-    private String[] mDataset;
-
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView textView;
-
-        public MyViewHolder(TextView v) {
-            super(v);
-            textView = v;
-        }
-    }
+    private ArrayList<Person> people;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyListAdapter(String[] myDataset) {
-        mDataset = myDataset;
+    public MyListAdapter(ArrayList<Person> people) {
+        this.people = people;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyListAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // create a new view
-        TextView v = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.my_text_view, parent, false);
-        MyViewHolder vh = new MyViewHolder(v);
-        return vh;
+    public EmployeeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.row_person, parent, false);
+        return new EmployeeViewHolder(view);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.textView.setText(mDataset[position]);
+    public void onBindViewHolder(EmployeeViewHolder holder, int position) {
+        holder.txtEmpName.setText(people.get(position).getName());
+        holder.txtEmpEmail.setText(people.get(position).getFloor());
 
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return people.size();
+    }
+
+    class EmployeeViewHolder extends RecyclerView.ViewHolder {
+
+        TextView txtEmpName, txtEmpEmail;
+
+        EmployeeViewHolder(View itemView) {
+            super(itemView);
+            txtEmpName = (TextView) itemView.findViewById(R.id.txt_person_name);
+            txtEmpEmail = (TextView) itemView.findViewById(R.id.txt_person_floor);
+        }
     }
 }
