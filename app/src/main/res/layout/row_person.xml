@@ -15,14 +15,14 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <!-- TextView Person Name -->
+        <!-- TextView User Name -->
         <TextView
             android:id="@+id/txt_person_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/materialCustomWhite" />
 
-        <!-- TextView Person Floor -->
+        <!-- TextView User Floor -->
         <TextView
             android:id="@+id/txt_person_floor"
             android:layout_width="match_parent"

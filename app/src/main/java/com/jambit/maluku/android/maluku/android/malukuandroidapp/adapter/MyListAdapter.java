@@ -7,17 +7,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.R;
-import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.Person;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.User;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.EmployeeViewHolder> {
 
-    private ArrayList<Person> people;
+    private ArrayList<User> people;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyListAdapter(ArrayList<Person> people) {
+    public MyListAdapter(ArrayList<User> people) {
         this.people = people;
     }
 
@@ -33,7 +32,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.EmployeeVi
     @Override
     public void onBindViewHolder(EmployeeViewHolder holder, int position) {
         holder.txtEmpName.setText(people.get(position).getName());
-        holder.txtEmpEmail.setText(people.get(position).getFloor());
+        holder.txtEmpEmail.setText(people.get(position).getRoom());
 
     }
 

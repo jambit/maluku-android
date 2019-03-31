@@ -1,7 +1,6 @@
 package com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments;
 
 import android.content.Context;
-import android.content.PeriodicSync;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,13 +12,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.jambit.maluku.android.maluku.android.malukuandroidapp.MainActivity;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.R;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.adapter.MyListAdapter;
-import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.Person;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.User;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.network.MalukuOkHttpClient;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,8 +45,11 @@ public class FoosballChat extends Fragment {
 
     private RecyclerView recyclerView;
     private MyListAdapter adapter;
-    private ArrayList<Person> people;
+    private ArrayList<User> currentUsers;
 
+    private Timer timer;
+
+    private MalukuOkHttpClient malukuOkHttpClient = new MalukuOkHttpClient();
 
     public FoosballChat() {
         // Required empty public constructor
@@ -88,15 +93,31 @@ public class FoosballChat extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        people = new ArrayList<>();
-        people.add(new Person("Employee1", "Floor 3"));
-        people.add(new Person("Employee2", "Floor 2"));
-        people.add(new Person("Employee3", "Floor 4"));
-        people.add(new Person("Employee4", "Floor 4"));
+        currentUsers = new ArrayList<>();
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            public void run() {
+                try {
+                    List<User> users = malukuOkHttpClient.getUsers();
+
+                    currentUsers.addAll(users);
+
+                    /*getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                        }
+                    }); */
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 1000, 1500);
 
         recyclerView = getActivity().findViewById(R.id.recycler_view);
 
-        adapter = new MyListAdapter(people);
+        adapter = new MyListAdapter(currentUsers);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
 
