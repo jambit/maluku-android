@@ -1,16 +1,20 @@
 package com.jambit.maluku.android.maluku.android.malukuandroidapp.model;
 
-import java.util.UUID;
 
 public class User {
 
     private String name;
-    private String room;
     private String id;
+    private String raum;
 
-    public User(String name, String room) {
+    public User(String name, String id, String raum) {
         this.name = name;
-        this.room = room;
+        this.id = id;
+        this.raum = raum;
+    }
+
+    public User() {
+        // Required empty constructor for json mapping
     }
 
     public String getName() {
@@ -21,15 +25,19 @@ public class User {
         this.name = name;
     }
 
-    public String getRoom() {
-        return room;
+    public String getId() {
+        return id;
     }
 
-    public void setRoom(String room) {
-        this.room = room;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void generateUserId(){
-        id = UUID.randomUUID().toString();
+    public String getRaum() {
+        return raum;
+    }
+
+    public void setRaum(String raum) {
+        this.raum = raum;
     }
 }

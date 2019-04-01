@@ -8,6 +8,7 @@ import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.Foosball;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.User;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.FormBody;
@@ -69,7 +70,7 @@ public class MalukuOkHttpClient {
         final String url = URL_USER_DATA + "/add-user";
 
         RequestBody formBody = new FormBody.Builder()
-                .add("name", personName)
+                .add("username", personName)
                 .build();
 
         Request request = new Request.Builder()
@@ -106,15 +107,15 @@ public class MalukuOkHttpClient {
      * @return TODO -> Adapt comment
      * @throws IOException
      */
-    public List<User> getUsers() throws IOException {
+    public ArrayList<User> getUsers() throws IOException {
         final String url = URL_USER_DATA + "/users";
 
         final Request request = new Request.Builder().url(url).build();
         final Response response = okHttpClient.newCall(request).execute();
 
-        List<User> users = null;
+        ArrayList<User> users = null;
         if (response.isSuccessful()) {
-            users = mapper.readValue(response.body().string(), new TypeReference<List<User>>() {
+            users = mapper.readValue(response.body().string(), new TypeReference<ArrayList<User>>() {
             });
         } else {
             Log.e("OkHttp3 GET error", response.body().string());

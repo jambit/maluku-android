@@ -32,7 +32,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.EmployeeVi
     @Override
     public void onBindViewHolder(EmployeeViewHolder holder, int position) {
         holder.txtEmpName.setText(people.get(position).getName());
-        holder.txtEmpEmail.setText(people.get(position).getRoom());
+        holder.txtEmpEmail.setText(people.get(position).getRaum());
 
     }
 
