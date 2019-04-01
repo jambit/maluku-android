@@ -165,4 +165,8 @@ public class FoosballChat extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    public void addUser(View view) {
+
+    }
 }

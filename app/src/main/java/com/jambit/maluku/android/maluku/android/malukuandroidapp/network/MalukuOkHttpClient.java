@@ -38,6 +38,8 @@ public class MalukuOkHttpClient {
      * @return A List filled with the sonic sensor data
      * @throws IOException
      */
+
+    // TODO 1 ist das 3
     public List<Foosball> getSonicSensorData() throws IOException {
 
         // To use OkHttp we need to create a Request object
