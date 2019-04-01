@@ -24,7 +24,6 @@ import com.jambit.maluku.android.maluku.android.malukuandroidapp.network.MalukuO
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -47,7 +46,7 @@ public class FoosballChat extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    // This ArrayList is used to store the current users
+    // This ArrayList stores the current users
     private ArrayList<User> currentUsers = new ArrayList<>();
 
     // This timer is used to create a thread to send periodically REST requests
@@ -79,6 +78,21 @@ public class FoosballChat extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(Uri uri);
     }
 
     @Override
@@ -124,7 +138,6 @@ public class FoosballChat extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-        // Bind the method to open the dialog when the button is pressed
         Button button = getActivity().findViewById(R.id.add_button);
         button.setOnClickListener(v -> buttonClicked());
     }
@@ -139,49 +152,33 @@ public class FoosballChat extends Fragment {
         }
     }
 
-    private void notifyDataSetChangedOnUiThread() {
-        getActivity().runOnUiThread(() -> adapter.notifyDataSetChanged());
-    }
-
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    // This method is used to tell the adapter that the data set has been changed
+    private void notifyDataSetChangedOnUiThread() {
+        getActivity().runOnUiThread(() -> adapter.notifyDataSetChanged());
     }
 
-    /**
-     * This method is used to open a AlertDialog. The user puts in his name and room number
-     */
+    // This method is used to open a AlertDialog. The user puts in his name and room number
     private void buttonClicked() {
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.add_dialog, null);
-        final EditText etUsername = alertLayout.findViewById(R.id.et_username);
-
-        //final EditText etEmail = alertLayout.findViewById(R.id.et_email);
+        final EditText editTextUserName = alertLayout.findViewById(R.id.et_username);
 
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         alert.setTitle("Add");
-        // this is set the view from XML inside AlertDialog
-        alert.setView(alertLayout);
-        // disallow cancel of AlertDialog on click of back button and outside touch
-        alert.setCancelable(false);
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 
+        // Set the view from XML inside AlertDialog
+        alert.setView(alertLayout);
+
+        // Disallow cancel of AlertDialog on click of back button and outside touch
+        alert.setCancelable(false);
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
@@ -189,28 +186,21 @@ public class FoosballChat extends Fragment {
         });
 
         alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
-
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String userNameInput = etUsername.getText().toString();
-                //String pass = etEmail.getText().toString();
-
+                String userNameInput = editTextUserName.getText().toString();
                 new Thread() {
                     public void run() {
                         try {
                             User user = malukuOkHttpClient.postPerson(userNameInput);
                             currentUsers.add(user);
-
-
                             notifyDataSetChangedOnUiThread();
-
-
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
                 }.start();
-                Toast.makeText(getContext(), "Name: " + userNameInput /*+ " Room number: " + pass */, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Name: " + userNameInput, Toast.LENGTH_SHORT).show();
             }
         });
         AlertDialog dialog = alert.create();

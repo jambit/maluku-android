@@ -7,14 +7,14 @@ public class User {
     private String id;
     private String raum;
 
+    public User() {
+        // Required empty public constructor
+    }
+
     public User(String name, String id, String raum) {
         this.name = name;
         this.id = id;
         this.raum = raum;
-    }
-
-    public User() {
-        // Required empty constructor for json mapping
     }
 
     public String getName() {

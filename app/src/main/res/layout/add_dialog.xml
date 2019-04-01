@@ -26,7 +26,7 @@
             android:singleLine="true" />
     </LinearLayout>
 
-    <!--
+    <!-- This section of code will be used in the future. The user will be able to input his room number.
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

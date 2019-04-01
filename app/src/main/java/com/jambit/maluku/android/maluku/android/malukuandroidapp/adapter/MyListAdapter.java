@@ -36,7 +36,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.EmployeeVi
 
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+    // Return the size of your data set (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return people.size();
@@ -48,8 +48,8 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.EmployeeVi
 
         EmployeeViewHolder(View itemView) {
             super(itemView);
-            txtEmpName = (TextView) itemView.findViewById(R.id.txt_person_name);
-            txtEmpEmail = (TextView) itemView.findViewById(R.id.txt_person_floor);
+            txtEmpName = itemView.findViewById(R.id.txt_person_name);
+            txtEmpEmail = itemView.findViewById(R.id.txt_person_floor);
         }
     }
 }
