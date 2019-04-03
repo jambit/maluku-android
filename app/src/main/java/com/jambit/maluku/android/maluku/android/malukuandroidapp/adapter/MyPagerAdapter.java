@@ -1,4 +1,4 @@
-package com.jambit.maluku.android.maluku.android.malukuandroidapp.pageadapter;
+package com.jambit.maluku.android.maluku.android.malukuandroidapp.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

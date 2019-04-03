@@ -99,32 +99,37 @@ public class FoosballTable extends Fragment {
                 try {
                     List<Foosball> foosballList = malukuOkHttpClient.getSonicSensorData();
 
-                    for (Foosball foosball : foosballList) {
-                        switch (foosball.getId()) {
-                            case 1:
-                                if (foosballList.get(0).isOccupied()) {
-                                    radioButtonFoosballOne.setChecked(true);
-                                } else {
-                                    radioButtonFoosballOne.setChecked(false);
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            for (Foosball foosball : foosballList) {
+                                switch (foosball.getId()) {
+                                    case 1:
+                                        if (foosballList.get(0).isOccupied()) {
+                                            radioButtonFoosballOne.setChecked(true);
+                                        } else {
+                                            radioButtonFoosballOne.setChecked(false);
+                                        }
+                                        break;
+                                    case 2:
+                                        if (foosballList.get(1).isOccupied()) {
+                                            radioButtonFoosballTwo.setChecked(true);
+                                        } else {
+                                            radioButtonFoosballTwo.setChecked(false);
+                                        }
+                                        break;
+                                    case 3:
+                                        if (foosballList.get(2).isOccupied()) {
+                                            radioButtonFoosballThree.setChecked(true);
+                                        } else {
+                                            radioButtonFoosballThree.setChecked(false);
+                                        }
+                                        break;
+                                    default:
                                 }
-                                break;
-                            case 2:
-                                if (foosballList.get(1).isOccupied()) {
-                                    radioButtonFoosballTwo.setChecked(true);
-                                } else {
-                                    radioButtonFoosballTwo.setChecked(false);
-                                }
-                                break;
-                            case 3:
-                                if (foosballList.get(2).isOccupied()) {
-                                    radioButtonFoosballThree.setChecked(true);
-                                } else {
-                                    radioButtonFoosballThree.setChecked(false);
-                                }
-                                break;
-                            default:
+                            }
                         }
-                    }
+                    });
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -11,4 +11,6 @@
     <string name="foosball_one_icon">Foosball one icon</string>
     <string name="foosball_two_icon">Foosball two icon</string>
     <string name="foosball_three_icon">Foosball three icon</string>
+    <string name="name">Name:</string>
+    <string name="room_number">Room number:</string>
 </resources>
