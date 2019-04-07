@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/jambitOrange">
+    android:background="@drawable/gradient_jambit_orange">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_layout_foosball_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/jambitGrey"
+        android:background="@drawable/gradient_jambit_grey"
         app:layout_constraintBottom_toTopOf="@+id/constraint_layout_foosball_two"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
         android:id="@+id/constraint_layout_foosball_two"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/jambitGrey"
+        android:background="@drawable/gradient_jambit_grey"
         app:layout_constraintBottom_toTopOf="@+id/constraint_layout_foosball_three"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +115,7 @@
         android:id="@+id/constraint_layout_foosball_three"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/jambitGrey"
+        android:background="@drawable/gradient_jambit_grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
