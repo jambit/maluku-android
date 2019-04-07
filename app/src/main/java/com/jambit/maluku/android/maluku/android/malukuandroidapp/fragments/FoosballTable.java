@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.R;
@@ -46,6 +47,10 @@ public class FoosballTable extends Fragment {
     private RadioButton radioButtonFoosballOne;
     private RadioButton radioButtonFoosballTwo;
     private RadioButton radioButtonFoosballThree;
+
+    private ImageView imageViewFoosballOne;
+    private ImageView imageViewFoosballTwo;
+    private ImageView imageViewFoosballThree;
 
     public FoosballTable() {
         // Required empty public constructor
@@ -93,6 +98,10 @@ public class FoosballTable extends Fragment {
         radioButtonFoosballTwo = getView().findViewById(R.id.radioButton2);
         radioButtonFoosballThree = getView().findViewById(R.id.radioButton3);
 
+        imageViewFoosballOne = getView().findViewById(R.id.image_view_foosball_one);
+        imageViewFoosballTwo = getView().findViewById(R.id.image_view_foosball_two);
+        imageViewFoosballThree = getView().findViewById(R.id.image_view_foosball_three);
+
         timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {
@@ -107,22 +116,31 @@ public class FoosballTable extends Fragment {
                                     case 1:
                                         if (foosballList.get(0).isOccupied()) {
                                             radioButtonFoosballOne.setChecked(true);
+                                            imageViewFoosballOne.setImageResource(R.drawable.kicker_table1_occupied);
+
                                         } else {
                                             radioButtonFoosballOne.setChecked(false);
+                                            imageViewFoosballOne.setImageResource(R.drawable.kicker_table1_free);
                                         }
                                         break;
                                     case 2:
                                         if (foosballList.get(1).isOccupied()) {
                                             radioButtonFoosballTwo.setChecked(true);
+                                            imageViewFoosballTwo.setImageResource(R.drawable.kicker_table2_occupied);
+
                                         } else {
                                             radioButtonFoosballTwo.setChecked(false);
+                                            imageViewFoosballTwo.setImageResource(R.drawable.kicker_table2_free);
                                         }
                                         break;
                                     case 3:
                                         if (foosballList.get(2).isOccupied()) {
                                             radioButtonFoosballThree.setChecked(true);
+                                            imageViewFoosballThree.setImageResource(R.drawable.kicker_table3_occupied);
+
                                         } else {
                                             radioButtonFoosballThree.setChecked(false);
+                                            imageViewFoosballThree.setImageResource(R.drawable.kicker_table3_free);
                                         }
                                         break;
                                     default:
