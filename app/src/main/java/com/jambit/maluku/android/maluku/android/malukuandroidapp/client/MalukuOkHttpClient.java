@@ -1,4 +1,4 @@
-package com.jambit.maluku.android.maluku.android.malukuandroidapp.network;
+package com.jambit.maluku.android.maluku.android.malukuandroidapp.client;
 
 import android.util.Log;
 
@@ -26,6 +26,7 @@ public class MalukuOkHttpClient {
     // Media Type, appropriate to describe the content type of an HTTP request or response body.
     private static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf-8");
 
+    // TODO Adjust the IP address
     // The URL of the endpoints to get data from backend
     private final static String URL_SENSOR_DATA = "http://192.168.56.1:8080/api/v1/ktmock/status";
     private final static String URL_USER_DATA = "http://192.168.56.1:8080/api/user-liste";

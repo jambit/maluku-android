@@ -14,7 +14,7 @@ import android.widget.RadioButton;
 
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.R;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.Foosball;
-import com.jambit.maluku.android.maluku.android.malukuandroidapp.network.MalukuOkHttpClient;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.client.MalukuOkHttpClient;
 
 import java.io.IOException;
 import java.util.List;

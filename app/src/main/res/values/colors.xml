@@ -4,5 +4,7 @@
     <color name="jambitOrange">#EE7F00</color>
     <color name="jambitGrey">#262626</color>
     <color name="pink">#ffc9a5</color>
+    <color name="customCantaloupe">#FFA077</color>
+    <color name="customDarkGrey">#BFBFBF</color>
     ffc9a5
 </resources>
