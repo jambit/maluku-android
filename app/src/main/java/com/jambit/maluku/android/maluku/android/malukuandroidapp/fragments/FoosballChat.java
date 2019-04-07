@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.R;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.adapter.MyListAdapter;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.User;
-import com.jambit.maluku.android.maluku.android.malukuandroidapp.network.MalukuOkHttpClient;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.client.MalukuOkHttpClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -169,7 +169,7 @@ public class FoosballChat extends Fragment {
         View alertLayout = inflater.inflate(R.layout.add_dialog, null);
         final EditText editTextUserName = alertLayout.findViewById(R.id.et_username);
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity(), R.style.AlertDialogDarkWhite);
         alert.setTitle("Add");
 
         // Set the view from XML inside AlertDialog

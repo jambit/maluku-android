@@ -1,4 +1,4 @@
-package com.jambit.maluku.android.maluku.android.malukuandroidapp.network;
+package com.jambit.maluku.android.maluku.android.malukuandroidapp.client;
 
 import android.util.Log;
 
