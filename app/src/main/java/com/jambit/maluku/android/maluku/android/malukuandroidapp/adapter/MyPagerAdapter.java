@@ -35,7 +35,7 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return "Tables";
             case 1:
-                return "Chat";
+                return "Players";
             default:
                 return null;
         }
