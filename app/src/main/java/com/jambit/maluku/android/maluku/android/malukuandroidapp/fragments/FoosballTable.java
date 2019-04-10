@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.R;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.model.Foosball;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.client.MalukuOkHttpClient;

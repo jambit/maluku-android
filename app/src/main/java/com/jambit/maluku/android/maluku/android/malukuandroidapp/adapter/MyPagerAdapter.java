@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.FoosballChat;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.FoosballPlayerList;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.FoosballTable;
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
@@ -19,7 +19,7 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new FoosballTable();
             case 1:
-                return new FoosballChat();
+                return new FoosballPlayerList();
         }
         return null;
     }
