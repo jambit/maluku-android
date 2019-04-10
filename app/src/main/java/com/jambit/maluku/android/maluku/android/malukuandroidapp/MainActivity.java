@@ -6,11 +6,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.FoosballChat;
+import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.FoosballPlayerList;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.FoosballTable;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.adapter.MyPagerAdapter;
 
-public class MainActivity extends AppCompatActivity implements FoosballChat.OnFragmentInteractionListener, FoosballTable.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements FoosballPlayerList.OnFragmentInteractionListener, FoosballTable.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
