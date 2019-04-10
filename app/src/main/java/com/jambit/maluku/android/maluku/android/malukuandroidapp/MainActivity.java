@@ -10,6 +10,11 @@ import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.Foosb
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments.FoosballTable;
 import com.jambit.maluku.android.maluku.android.malukuandroidapp.adapter.MyPagerAdapter;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+import com.microsoft.appcenter.AppCenter; import com.microsoft.appcenter.analytics.Analytics; import com.microsoft.appcenter.crashes.Crashes;
+
 public class MainActivity extends AppCompatActivity implements FoosballPlayerList.OnFragmentInteractionListener, FoosballTable.OnFragmentInteractionListener {
 
     @Override
@@ -25,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements FoosballPlayerLis
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);
+
+        AppCenter.start(getApplication(), "de06fa9c-5f5f-464d-8322-aa8406194d94", Analytics.class, Crashes.class);
     }
 
     @Override
