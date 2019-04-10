@@ -6,8 +6,8 @@ public class Foosball {
     private int id;
     private boolean invalid;
     private double averageTimeUsed;
-    private double start;
-    private double stop;
+    private String start;
+    private String stop;
 
     public boolean isOccupied() {
         return isOccupied;
@@ -41,19 +41,19 @@ public class Foosball {
         this.averageTimeUsed = averageTimeUsed;
     }
 
-    public double getStart() {
+    public String getStart() {
         return start;
     }
 
-    public void setStart(double start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public double getStop() {
+    public String getStop() {
         return stop;
     }
 
-    public void setStop(double stop) {
+    public void setStop(String stop) {
         this.stop = stop;
     }
 }
