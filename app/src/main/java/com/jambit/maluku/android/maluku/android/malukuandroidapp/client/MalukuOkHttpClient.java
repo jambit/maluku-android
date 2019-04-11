@@ -80,13 +80,13 @@ public class MalukuOkHttpClient {
     }
 
     public String deletePerson(User user) throws IOException {
-        final String url = BASE_URL_USER_DATA + "/users";
+        final String url = BASE_URL_USER_DATA + "/delete-user";
         final String jsonUser = mapper.writeValueAsString(user);
 
         RequestBody body = RequestBody.create(MEDIA_TYPE_JSON, jsonUser);
         Request request = new Request.Builder()
                 .url(url)
-                .post(body)
+                .delete(body)
                 .build();
 
         Response response = okHttpClient.newCall(request).execute();

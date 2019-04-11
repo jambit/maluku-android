@@ -1,7 +1,6 @@
 package com.jambit.maluku.android.maluku.android.malukuandroidapp.fragments;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -37,26 +36,27 @@ import java.util.TimerTask;
  */
 public class FoosballPlayerList extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    // This ArrayList stores the current users
-    private ArrayList<User> currentUsers = new ArrayList<>();
-
-    // This timer is used to create a thread to send periodically REST requests
-    private Timer timer;
+    private OnFragmentInteractionListener mListener;
 
     private MalukuOkHttpClient malukuOkHttpClient = new MalukuOkHttpClient();
-    private OnFragmentInteractionListener mListener;
+
+    private ArrayList<User> currentUsers = new ArrayList<>();
+
+    private Timer timer;
 
     private RecyclerView recyclerView;
     private MyListAdapter adapter;
+
+    private String userId;
+
+    private Button button;
 
     public FoosballPlayerList() {
         // Required empty public constructor
@@ -70,7 +70,6 @@ public class FoosballPlayerList extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment FoosballPlayerList.
      */
-    // TODO: Rename and change types and number of parameters
     public static FoosballPlayerList newInstance(String param1, String param2) {
         FoosballPlayerList fragment = new FoosballPlayerList();
         Bundle args = new Bundle();
@@ -91,7 +90,6 @@ public class FoosballPlayerList extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 
@@ -114,8 +112,16 @@ public class FoosballPlayerList extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        timer = new Timer();
+        recyclerView = getActivity().findViewById(R.id.recycler_view);
+        adapter = new MyListAdapter(currentUsers);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
 
+        button = getActivity().findViewById(R.id.add_button);
+        button.setOnClickListener(v -> buttonClicked());
+
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             public void run() {
                 try {
@@ -131,15 +137,6 @@ public class FoosballPlayerList extends Fragment {
                 }
             }
         }, 1000, 1500);
-
-        recyclerView = getActivity().findViewById(R.id.recycler_view);
-        adapter = new MyListAdapter(currentUsers);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-
-        Button button = getActivity().findViewById(R.id.add_button);
-        button.setOnClickListener(v -> buttonClicked());
     }
 
     @Override
@@ -165,45 +162,63 @@ public class FoosballPlayerList extends Fragment {
 
     // This method is used to open a AlertDialog. The user puts in his name and room number
     private void buttonClicked() {
-        LayoutInflater inflater = getLayoutInflater();
-        View alertLayout = inflater.inflate(R.layout.add_dialog, null);
-        final EditText editTextUserName = alertLayout.findViewById(R.id.et_username);
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity(), R.style.AlertDialogDarkWhite);
-        alert.setTitle("Add");
+        if(adapter.containsUser(userId)) {
 
-        // Set the view from XML inside AlertDialog
-        alert.setView(alertLayout);
 
-        // Disallow cancel of AlertDialog on click of back button and outside touch
-        alert.setCancelable(false);
+            User user = adapter.getUser(userId);
 
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getContext(), "Cancel clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+            new Thread(() -> {
+                try {
+                    malukuOkHttpClient.deletePerson(user);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
 
-        alert.setPositiveButton("Done", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+            adapter.removeItem(userId);
+            notifyDataSetChangedOnUiThread();
+
+            Toast.makeText(getContext(), "Eintrag entfernt!", Toast.LENGTH_LONG).show();
+            button.setText(getString(R.string.add_button_add_entry));
+        } else {
+            LayoutInflater inflater = getLayoutInflater();
+            View alertLayout = inflater.inflate(R.layout.add_dialog, null);
+            final EditText editTextUserName = alertLayout.findViewById(R.id.et_username);
+
+            AlertDialog.Builder alert = new AlertDialog.Builder(getActivity(), R.style.AlertDialogDarkWhite);
+            alert.setTitle("Hinzufügen");
+
+            // Set the view from XML inside AlertDialog
+            alert.setView(alertLayout);
+
+            // Disallow cancel of AlertDialog on click of back button and outside touch
+            alert.setCancelable(false);
+
+            alert.setNegativeButton("Abbruch", (dialog, which) -> Toast.makeText(getContext(), "Abbruch geklickt", Toast.LENGTH_SHORT).show());
+
+            alert.setPositiveButton("Fertig", (dialog, which) -> {
                 String userNameInput = editTextUserName.getText().toString();
                 new Thread() {
                     public void run() {
                         try {
                             User user = malukuOkHttpClient.postPerson(userNameInput);
-                            currentUsers.add(user);
+                            userId = user.getId();
+
+                            adapter.addItem(user);
                             notifyDataSetChangedOnUiThread();
+
+                            button.setText(getString(R.string.add_button_remove_entry));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
                 }.start();
-                Toast.makeText(getContext(), "Name: " + userNameInput, Toast.LENGTH_SHORT).show();
-            }
-        });
-        AlertDialog dialog = alert.create();
-        dialog.show();
+                Toast.makeText(getContext(), "Eintrag hinzugefügt", Toast.LENGTH_SHORT).show();
+            });
+            AlertDialog dialog = alert.create();
+            dialog.show();
+
+        }
     }
 }

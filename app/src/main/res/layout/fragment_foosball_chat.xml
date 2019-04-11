@@ -22,7 +22,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
         android:backgroundTint="@color/jambitGrey"
-        android:fontFamily="@font/raleway_thin"
+        android:fontFamily="sans-serif"
         android:text="Eintragen"
         android:textAllCaps="true"
         android:textColor="@color/materialCustomWhite"

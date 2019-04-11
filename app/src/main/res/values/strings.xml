@@ -13,4 +13,6 @@
     <string name="foosball_three_icon">Foosball three icon</string>
     <string name="name">Name:</string>
     <string name="room_number">Room number:</string>
+    <string name="add_button_remove_entry">Eintrag entfernen</string>
+    <string name="add_button_add_entry">Eintragen</string>
 </resources>
