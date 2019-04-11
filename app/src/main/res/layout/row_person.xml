@@ -8,26 +8,27 @@
     card_view:cardElevation="3dp"
     card_view:cardUseCompatPadding="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="393dp"
+        android:layout_height="45dp"
         android:layout_margin="5dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="5dp">
 
         <!-- TextView User Name -->
         <TextView
             android:id="@+id/txt_person_name"
-            android:layout_width="match_parent"
+            android:layout_width="375dp"
             android:layout_height="wrap_content"
             android:textColor="@color/materialCustomWhite" />
 
-        <!-- TextView User Floor -->
+        <!-- TextView for the Room Number of the User. It will be used in the future
         <TextView
-            android:id="@+id/txt_person_floor"
-            android:layout_width="match_parent"
+            android:id="@+id/txt_person_name"
+            android:layout_width="355dp"
             android:layout_height="wrap_content"
             android:textColor="@color/materialCustomWhite" />
+        -->
 
     </LinearLayout>
 

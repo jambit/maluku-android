@@ -8,7 +8,7 @@ In addition, the user should find potential game partners faster through a chat 
 * List of players who are interested in a game
 
 ## Features for the future
-* Chat Client next to the foosball people list
+* Chat Client next to the foosball users list
 
 ## Authors
 * Vincenzo Auricchio 
