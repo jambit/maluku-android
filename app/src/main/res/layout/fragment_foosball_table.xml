@@ -8,7 +8,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_layout_foosball_one"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:background="@drawable/gradient_jambit_grey"
         app:layout_constraintBottom_toTopOf="@+id/constraint_layout_foosball_two"
@@ -22,10 +22,12 @@
             android:layout_height="88dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="17dp"
             android:layout_marginBottom="16dp"
             android:contentDescription="@string/content_description_foosball_one"
             android:src="@drawable/kicker_table1_free"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,16 +36,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="115dp"
+            android:layout_marginEnd="92dp"
             android:text="@string/foosball_one_text"
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/materialCustomWhite"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/image_view_foosball_one"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +52,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_layout_foosball_two"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:background="@drawable/gradient_jambit_grey"
         app:layout_constraintBottom_toTopOf="@+id/constraint_layout_foosball_three"
@@ -77,12 +78,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="115dp"
+            android:layout_marginEnd="40dp"
             android:text="@string/foosball_two_text"
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/materialCustomWhite"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +93,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_layout_foosball_three"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:background="@drawable/gradient_jambit_grey"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,12 +119,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="115dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/foosball_three_text"
             android:textAlignment="viewStart"
             android:textAllCaps="true"
             android:textColor="@color/materialCustomWhite"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
