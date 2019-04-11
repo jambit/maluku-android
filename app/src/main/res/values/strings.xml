@@ -5,9 +5,9 @@
     <string name="content_description_foosball_one">Picture of foosball one</string>
     <string name="content_description_foosball_two">Picture of foosball two</string>
     <string name="content_description_foosball_three">Picture of foosball three</string>
-    <string name="foosball_one_text">Foosball 1</string>
-    <string name="foosball_two_text">Foosball 2</string>
-    <string name="foosball_three_text">Foosball 3</string>
+    <string name="foosball_one_text">Leonhart Arena</string>
+    <string name="foosball_two_text">Arnim-Kreutzer-Arena</string>
+    <string name="foosball_three_text">Manfred-Harrer-Stadion</string>
     <string name="foosball_one_icon">Foosball one icon</string>
     <string name="foosball_two_icon">Foosball two icon</string>
     <string name="foosball_three_icon">Foosball three icon</string>
